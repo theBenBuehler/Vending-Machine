@@ -1,0 +1,36 @@
+Ben Buehler - Vending Machine
+There are two versions text-based and simple GUI
+Titles that start with VENDING MACHINE are text based
+Titles that GUI are made with pTkinter
+
+I like the logic of the text based versions better. I think they are more creative and interesting.
+This projects represents my first experience with using pTkinter so it is not very sophisticated.
+
+VARIABLES
+items: dictionary of all 10 items in machine. Each dictionary contains a list [item name, cost, quantity]
+layout: used in text version. Sets layout for menu screen
+thing: returns a specific key in dictionary that contains the user item
+change: float variable that is a running total of money owed to user
+moneyInput: float variable where users declare(in dollars...with decimal points) how much money they input
+changeList: declares all units of currency the machine can dispense.
+changeNames: delcares all names for currency the machine can dispene (I may have been able to put this into a dictionary with changeList
+FOR GUI VERSION
+xxx.Text are labels
+xxx.Button are buttons
+xxxThis are buttons used to indicate the user is done entering texts in an input field
+exxx are variables that hold entry fields
+
+*****NOTES ON VARIABLES****
+    In the GUI version I had to declare many variables and button names as global to get them to work correctly.
+
+
+
+FUNCTIONS
+showMenu() - prints menu screen
+itemSelect() - checks to make sure the item the user selects is in the vending machine
+itemBuy() - starts the sequence of buying, paying, and making change
+makeChange() - called in itemBuy() to calculate and display change.
+showMenu() - the only way to see what is in the machine
+FOR GUI VERSION
+xxx.Click() are function that trigger when the buttons on the root screen get clicked
+xxx.get() methods are used to read text from users.
