@@ -4,10 +4,11 @@ Ben Buehler
 Create a Virtual Vending Machine
  First -- Example for data structure https://stackoverflow.com/questions/52912856/python-vending-machine
 
-Version 3 - make change no random
+Version 2 - make change WITH RANDOM
 """
 from tkinter import *
 import time
+import random
 
 root = Tk()
 root.title("Vending Machine")
@@ -44,9 +45,13 @@ def showMenu():
 
 
 #try it as a dictionary -- list of (item, cost, quantity)
-#These are my items
-items={'item1':['chips','1.5','2'], 'item2':['chocolate','2','5'], 'item3':['headphones','15','1'], 'item4':['poptarts','2','2'], 'item5':['candy','1.75','2']}
+#These are my 10 items. the random quantiy of 2 gets replaced
+items={'item1':['chips','1.5',2], 'item2':['chocolate','2',2], 'item3':['headphones','15',2], 'item4':['poptarts','2',2], 'item5':['candy','1.75',2], 'item6':['pop','2.00',2], 'item7':['coffee','0.75',2], 'item8':['pizza','3.75',2], 'item9':['furbee','18.50',2], 'item10':['rubber duck','3.75',2]}
 
+#randomize quantity for each 0 to 9
+for thing in items:
+    number = random.randint(0,9)
+    items[thing][2] = number
     
 def destroyButtons():
     menuButton.destroy()
@@ -183,15 +188,16 @@ def makeChange(moneyInput, change):
     changeLabelPennya = Label(vend, text=str(pennies)).grid(row=19,column=2)
     
 def quitClick():#when button is clicked delete everything show menu
+    #global goodbye
     destroyButtons()
-    secondScreen.destroy()
-    goodbye = Label(root,text="Get your Goodies Elsewhere").grid(row=2, column=2)
+    goodbye = Label(root,text="Bye. Get your Goodies Elsewhere").grid(row=4, column=2)
 
 def mainScreen():
     global menuButton 
     global buyButton
     global quitButton
     global backButton
+
     
     menuButton=Button(root,text="See Menu", padx = 30, pady=30, command=showMenu, fg="red", bg="blue")
     buyButton=Button(root,text="Buy Goodies", padx = 30, pady=30, command=buyClick, fg="black", bg="green")
